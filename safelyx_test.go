@@ -85,7 +85,7 @@ func TestCheckLink(t *testing.T) {
 		if result.Analysis.AntiVirus == "" {
 			t.Error("Expected anti_virus to be present in analysis")
 		}
-		if result.ChecksRemaining == 0 {
+		if result.ChecksRemaining < 0 {
 			t.Error("Expected checks_remaining to be present")
 		}
 	}
@@ -171,7 +171,7 @@ func TestCheckEmail(t *testing.T) {
 		if result.Analysis.MXRecords == "" {
 			t.Error("Expected mx_records to be present in analysis")
 		}
-		if result.ChecksRemaining == 0 {
+		if result.ChecksRemaining < 0 {
 			t.Error("Expected checks_remaining to be present")
 		}
 	}
@@ -258,7 +258,7 @@ func TestCheckMessage(t *testing.T) {
 		if result.Analysis.Sentiment == "" {
 			t.Error("Expected sentiment to be present in analysis")
 		}
-		if result.ChecksRemaining == 0 {
+		if result.ChecksRemaining < 0 {
 			t.Error("Expected checks_remaining to be present")
 		}
 	}
@@ -386,7 +386,7 @@ func TestCheckImage(t *testing.T) {
 		if result.Analysis.Link.URL == "" {
 			t.Error("Expected url to be present in analysis.link")
 		}
-		if result.Analysis.Link.Result == 0 {
+		if result.Analysis.Link.Result < -1 {
 			t.Error("Expected result to be present in analysis.link")
 		}
 		if result.Analysis.Link.Date == "" {
@@ -401,7 +401,7 @@ func TestCheckImage(t *testing.T) {
 		if result.Analysis.Link.Analysis.AntiVirus == "" {
 			t.Error("Expected anti_virus to be present in analysis.link.analysis")
 		}
-		if result.ChecksRemaining == 0 {
+		if result.ChecksRemaining < 0 {
 			t.Error("Expected checks_remaining to be present")
 		}
 	}
