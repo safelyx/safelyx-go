@@ -1,13 +1,15 @@
-package safelyx
+package safelyx_test
 
 import (
 	"os"
 	"testing"
+
+	"github.com/safelyx/safelyx-go"
 )
 
 func TestCheckLink(t *testing.T) {
 	keyCode := os.Getenv("TEST_KEY_CODE")
-	client := NewClient(keyCode)
+	client := safelyx.NewClient(keyCode)
 
 	tests := []struct {
 		url      string
@@ -93,7 +95,7 @@ func TestCheckLink(t *testing.T) {
 
 func TestCheckEmail(t *testing.T) {
 	keyCode := os.Getenv("TEST_KEY_CODE")
-	client := NewClient(keyCode)
+	client := safelyx.NewClient(keyCode)
 
 	tests := []struct {
 		email    string
@@ -179,7 +181,7 @@ func TestCheckEmail(t *testing.T) {
 
 func TestCheckMessage(t *testing.T) {
 	keyCode := os.Getenv("TEST_KEY_CODE")
-	client := NewClient(keyCode)
+	client := safelyx.NewClient(keyCode)
 
 	tests := []struct {
 		message  string
@@ -266,7 +268,7 @@ func TestCheckMessage(t *testing.T) {
 
 func TestCheckImage(t *testing.T) {
 	keyCode := os.Getenv("TEST_KEY_CODE")
-	client := NewClient(keyCode)
+	client := safelyx.NewClient(keyCode)
 
 	tests := []struct {
 		imageURL string

@@ -18,23 +18,23 @@ You can find the API documentation at https://safelyx.com/safe-api.
 
 It has a method per API endpoint.
 
-### Node/NPM
-
 ```bash
-go get github.com/safelyx/safelyx-go
+go install github.com/safelyx/safelyx-go@v0.1.0
 ```
 
 ```go
 import (
-	"log"
-	"fmt"
+  "log"
+  "fmt"
 
-	"github.com/safelyx/safelyx-go"
+  "github.com/safelyx/safelyx-go"
 )
 
-checkResult, err := safelyx.CheckLink("https://example.com")
+api := safelyx.NewClient("your-key-code")
+
+checkResult, err := api.CheckLink("https://example.com")
 if err != nil {
-    log.Fatal(err)
+  log.Fatal(err)
 }
 
 fmt.Println(checkResult.Result) // Outputs a safety score between 0 (unsafe) and 10 (safe). -1 if there was an error, -2 if there are no checks remaining.
@@ -51,4 +51,4 @@ make test
 
 ## Publishing
 
-Just push to the `main` branch and create a tag + release.
+Just push to the `main` branch (with the updated version in the README) and create a tag + release.
