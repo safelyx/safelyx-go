@@ -19,7 +19,7 @@ You can find the API documentation at https://safelyx.com/safe-api.
 It has a method per API endpoint.
 
 ```bash
-go install github.com/safelyx/safelyx-go@v0.1.0
+go install github.com/safelyx/safelyx-go@v0.1.1
 ```
 
 ```go
