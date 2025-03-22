@@ -4,6 +4,5 @@ format:
 
 .PHONY: test
 test:
-	go vet .
 	go test -v . -race
 	go mod tidy

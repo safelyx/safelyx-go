@@ -113,12 +113,12 @@ func (c *Client) CheckLink(link string) (*SafeLinkResponse, error) {
 		return nil, err
 	}
 
+	defer resp.Body.Close()
+
 	var result SafeLinkResponse
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		defer resp.Body.Close()
 		return nil, err
 	}
-	defer resp.Body.Close()
 
 	return &result, nil
 }
@@ -135,12 +135,12 @@ func (c *Client) CheckEmail(email string) (*SafeEmailResponse, error) {
 		return nil, err
 	}
 
+	defer resp.Body.Close()
+
 	var result SafeEmailResponse
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		defer resp.Body.Close()
 		return nil, err
 	}
-	defer resp.Body.Close()
 
 	return &result, nil
 }
@@ -158,12 +158,12 @@ func (c *Client) CheckMessage(message string, skipLinkAndEmailChecks bool) (*Saf
 		return nil, err
 	}
 
+	defer resp.Body.Close()
+
 	var result SafeMessageResponse
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		defer resp.Body.Close()
 		return nil, err
 	}
-	defer resp.Body.Close()
 
 	return &result, nil
 }
@@ -180,12 +180,12 @@ func (c *Client) CheckImage(imageURL string) (*SafeImageResponse, error) {
 		return nil, err
 	}
 
+	defer resp.Body.Close()
+
 	var result SafeImageResponse
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		defer resp.Body.Close()
 		return nil, err
 	}
-	defer resp.Body.Close()
 
 	return &result, nil
 }
